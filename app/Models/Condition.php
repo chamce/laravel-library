@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Author extends Model
+class Condition extends Model
 {
     use HasFactory;
-    protected $table = 'authors';
+    protected $table = 'conditions';
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
-    protected $fillable = [ 'name', 'dob' ];
+    protected $fillable = [ 'label' ];
   
-    public function book_authors()
+    public function books()
     {
-        return $this->hasMany(Book_author::class);
+        return $this->hasMany(Book::class);
     }
 }
